@@ -16,6 +16,7 @@ class LoginPage : AbstractTechnicalPage() {
 
 
 
+
     fun clickOnLoginButton() = elements().performClick(loginButton)
 
     fun fillLogin(userName: String, password: String){

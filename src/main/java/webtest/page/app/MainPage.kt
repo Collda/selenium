@@ -14,6 +14,8 @@ class MainPage : AbstractTechnicalPage() {
 
     private val logo: ElementDef = ElementDef(ComponentType.PAGE_LOGO, "Swag Labs", By.className("app_logo"))
 
+    private val menu: ElementDef = ElementDef(ComponentType.BUTTON, "Menu", "react-burger-menu-btn")
+    private val logout: ElementDef = ElementDef(ComponentType.BUTTON, "Logout", "logout_sidebar_link")
     fun validateLoggedIn() {
         if (!elements().isDisplayed(logo)) {
             fail(
@@ -23,4 +25,7 @@ class MainPage : AbstractTechnicalPage() {
         }
     }
 
+fun clickOnMenu() = elements().performClick(menu)
+
+fun clickOnLogoutButton() = elements().performClick(logout)
 }
