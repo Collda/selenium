@@ -8,19 +8,16 @@ import webtest.base.Info.Companion.of
 import webtest.page.common.AbstractTechnicalPage
 
 class MainPage : AbstractTechnicalPage() {
-    override fun isOpen(): Boolean {
-        TODO("Not yet implemented")
-    }
+    override fun isOpen(): Boolean =
+        elements().findElement(logo).isDisplayed
 
     private val logo: ElementDef = ElementDef(ComponentType.PAGE_LOGO, "Swag Labs", By.className("app_logo"))
+    private val burgerMenuIcon: ElementDef =
+        ElementDef(ComponentType.BUTTON, "Hamburger menu", By.className("bm-burger-button"))
 
-    fun validateLoggedIn() {
-        if (!elements().isDisplayed(logo)) {
-            fail(
-                of(this).message("Uživateli se nepodažilo přihlásit nebo se nezobrazilo logo na stránce").element(logo)
-                    .build()
-            )
-        }
+    fun clickOnHamburgerMenu(): HamBurgerMenu {
+        elements().performClick(burgerMenuIcon)
+        return HamBurgerMenu()
     }
 
 }
