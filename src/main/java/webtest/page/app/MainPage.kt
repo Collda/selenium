@@ -13,14 +13,17 @@ class MainPage : AbstractTechnicalPage() {
     }
 
     private val logo: ElementDef = ElementDef(ComponentType.PAGE_LOGO, "Swag Labs", By.className("app_logo"))
+    private val burgerMenuButton: ElementDef = ElementDef(ComponentType.HAMBURGER_MENU, "Open Menu", "react-burger-menu-btn")
 
     fun validateLoggedIn() {
         if (!elements().isDisplayed(logo)) {
             fail(
-                of(this).message("Uživateli se nepodažilo přihlásit nebo se nezobrazilo logo na stránce").element(logo)
+                of(this).message("Uživateli se nepodařilo přihlásit nebo se nezobrazilo logo na stránce").element(logo)
                     .build()
             )
         }
     }
+    fun clickOnMenu() = elements().performClick(burgerMenuButton)
+
 
 }

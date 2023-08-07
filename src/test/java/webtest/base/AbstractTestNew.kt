@@ -5,6 +5,7 @@ import org.openqa.selenium.OutputType
 import org.openqa.selenium.TakesScreenshot
 import org.testng.ITestResult
 import org.testng.annotations.*
+import webtest.page.app.BurgerPage
 import webtest.page.app.LoginPage
 import webtest.page.app.MainPage
 import java.io.File
@@ -53,6 +54,17 @@ abstract class AbstractTestNew {
 
         return MainPage()
     }
+
+    fun logout():BurgerPage{
+        MainPage().run{
+            clickOnMenu()
+        }
+        BurgerPage().run{
+            clickOnLogout()
+        }
+        return BurgerPage()
+    }
+
 
 
 }
