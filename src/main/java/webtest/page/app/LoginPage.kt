@@ -15,7 +15,6 @@ class LoginPage : AbstractTechnicalPage() {
     private val loginButton: ElementDef = ElementDef(ComponentType.BUTTON, "Login", "login-button")
 
 
-
     fun clickOnLoginButton() = elements().performClick(loginButton)
 
     fun fillLogin(userName: String, password: String){
