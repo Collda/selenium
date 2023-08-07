@@ -4,7 +4,7 @@ import org.testng.annotations.Test
 
 class PrvniExLogout : AbstractTestNew() {
     @Test
-    fun LogoutEx(){
+    fun logOutEx(){
         login().validateLoggedIn()
         logOut()
     }
