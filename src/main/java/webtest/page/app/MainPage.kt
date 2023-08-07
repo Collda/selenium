@@ -12,6 +12,8 @@ class MainPage : AbstractTechnicalPage() {
         TODO("Not yet implemented")
     }
 
+
+
     private val logo: ElementDef = ElementDef(ComponentType.PAGE_LOGO, "Swag Labs", By.className("app_logo"))
 
     fun validateLoggedIn() {
@@ -22,5 +24,11 @@ class MainPage : AbstractTechnicalPage() {
             )
         }
     }
+
+    private val menu: ElementDef = ElementDef(ComponentType.BUTTON, "Hamburger Menu", By.id("react-burger-menu-btn"))
+    private val logout: ElementDef = ElementDef(ComponentType.BUTTON, "Logout", By.id("logout_sidebar_link"))
+
+    fun clickOnMenu() = elements().performClick(menu)
+    fun clickOnLogutButton() = elements().performClick(logout)
 
 }
