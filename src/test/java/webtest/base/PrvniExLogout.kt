@@ -2,10 +2,11 @@ package webtest.base
 
 import org.testng.annotations.Test
 
-class BaseTest : AbstractTestNew() {
-
+class PrvniExLogout : AbstractTestNew() {
     @Test
-    fun exampleTest(){
+    fun LogoutEx(){
         login().validateLoggedIn()
+        logOut()
     }
+
 }

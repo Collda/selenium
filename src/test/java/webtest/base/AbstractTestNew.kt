@@ -43,12 +43,27 @@ abstract class AbstractTestNew {
      * Zmínit se jak to lze napsat jinak za pouziti core selenia Webdriver, rozdil mezi fce run/let/also ...
      */
     fun login(): MainPage {
-        LoginPage().run {
+        /*LoginPage().run {
             fillLogin(PropertiesData.getUsername(), PropertiesData.getPassword())
-            clickOnLoginButton()
-        }
+             clickOnLoginButton()
+        }*/
+
+        val loginPage = LoginPage()
+        loginPage.fillLogin(PropertiesData.getUsername(),PropertiesData.getPassword())
+        loginPage.clickOnLoginButton()
+
+
         return MainPage()
     }
 
+    fun logOut(): LoginPage {
+
+        val MainPage = MainPage()
+        MainPage.clickOnHamburgerMenuButton()
+        MainPage.clickOnLogOutButton()
+
+
+        return LoginPage()
+    }
 
 }
