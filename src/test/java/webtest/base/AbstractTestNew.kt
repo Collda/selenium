@@ -35,7 +35,7 @@ abstract class AbstractTestNew {
 
         }
         DriverSettings.getDriver().close()
-        DriverSettings.getDriver().quit()
+        //DriverSettings.getDriver().quit()
     }
 
 
@@ -47,8 +47,22 @@ abstract class AbstractTestNew {
             fillLogin(PropertiesData.getUsername(), PropertiesData.getPassword())
             clickOnLoginButton()
         }
+
+/*      val loginPage = LoginPage()
+        loginPage.fillLogin(PropertiesData.getUsername(),PropertiesData.getPassword())
+        loginPage.clickOnLoginButton()
+*/
+
         return MainPage()
     }
 
+    fun logout():LoginPage {
+        MainPage().run {
+            clickOnMenuButton()
+            clickOnLogoutButton()
+        }
+
+        return LoginPage()
+    }
 
 }
