@@ -6,7 +6,10 @@ import webtest.page.common.AbstractTechnicalPage
 
 class LoginPage : AbstractTechnicalPage() {
     override fun isOpen(): Boolean {
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
+        var isPageOpen = false
+        isPageOpen=(currentUrl.equals("https://www.saucedemo.com"))
+        return isPageOpen
     }
 
     private val userNameInput: ElementDef = ElementDef(ComponentType.INPUT, "Username", "user-name")
