@@ -5,7 +5,7 @@ import org.testng.annotations.Test
 class BaseTest : AbstractTestNew() {
 
     @Test
-    fun exampleTest(){
+    fun exampleTest() {
         login().validateLoggedIn()
     }
 }
