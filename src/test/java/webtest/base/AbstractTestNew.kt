@@ -34,7 +34,7 @@ abstract class AbstractTestNew {
             }
 
         }
-        DriverSettings.getDriver().close()
+        //DriverSettings.getDriver().close()
         DriverSettings.getDriver().quit()
     }
 
