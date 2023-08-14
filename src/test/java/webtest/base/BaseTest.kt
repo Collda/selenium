@@ -8,9 +8,7 @@ class BaseTest : AbstractTestNew() {
     @Test
     fun logoutAfterLoginTest() {
         val testStep = MainPageTestStep()
-
-
-        login()
+        //login()
         testStep.fillCart()
         logout()
     }

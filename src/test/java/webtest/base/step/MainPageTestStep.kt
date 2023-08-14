@@ -1,5 +1,6 @@
 package webtest.base.step
 
+import webtest.base.Assert.assertPageIsOpen
 import webtest.page.app.MainPage
 
 class MainPageTestStep: AbstractTestStep() {
@@ -7,11 +8,9 @@ class MainPageTestStep: AbstractTestStep() {
     fun fillCart(){
 
         val mainPage = MainPage()
-        mainPage.clickOnAddToCart(mainPage.addToCartBackPackButton)
-        mainPage.clickOnAddToCart(mainPage.addToCartFleecePackButton)
-        mainPage.clickOnAddToCart(mainPage.addToCartTShirtButton)
-
-        mainPage.clickOnShoppingCart().isOpen
+        mainPage.fillCartWithItems()
+        val shoppingCartPage = mainPage.clickOnShoppingCart()
+        assertPageIsOpen(shoppingCartPage)
 
        /* MainPage().run {
             clickOnAddToCart(this.addToCartBackPackButton)

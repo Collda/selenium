@@ -16,11 +16,11 @@ class MainPage : AbstractTechnicalPage() {
     private val shoppingCartIcon: ElementDef =
         ElementDef(ComponentType.LINK, "Icon of Cart", By.className("shopping_cart_link"))
 
-    val addToCartBackPackButton: ElementDef =
+    private val addToCartBackPackButton: ElementDef =
         ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-backpack")
-    val addToCartTShirtButton: ElementDef =
+    private val addToCartTShirtButton: ElementDef =
         ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-bolt-t-shirt")
-    val addToCartFleecePackButton: ElementDef =
+    private val addToCartFleecePackButton: ElementDef =
         ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-fleece-jacket")
 
     fun clickOnHamburgerMenu(): HamBurgerMenu {
@@ -33,6 +33,13 @@ class MainPage : AbstractTechnicalPage() {
     fun clickOnShoppingCart(): ShoppingCartPage {
         elements().performClick(shoppingCartIcon)
         return ShoppingCartPage()
+    }
+
+    fun fillCartWithItems() {
+        clickOnAddToCart(addToCartBackPackButton)
+        clickOnAddToCart(addToCartFleecePackButton)
+        clickOnAddToCart(addToCartTShirtButton)
+
     }
 
 
