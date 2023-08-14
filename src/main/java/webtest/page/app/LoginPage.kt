@@ -13,10 +13,7 @@ class LoginPage : AbstractTechnicalPage() {
     private val passwordInput: ElementDef = ElementDef(ComponentType.INPUT, "Password", "password")
 
     private val loginButton: ElementDef = ElementDef(ComponentType.BUTTON, "Login", "login-button")
-
-
-
-
+    
     fun clickOnLoginButton() = elements().performClick(loginButton)
 
     fun fillLogin(userName: String, password: String){

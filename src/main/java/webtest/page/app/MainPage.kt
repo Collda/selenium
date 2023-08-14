@@ -16,6 +16,14 @@ class MainPage : AbstractTechnicalPage() {
 
     private val menu: ElementDef = ElementDef(ComponentType.BUTTON, "Menu", "react-burger-menu-btn")
     private val logout: ElementDef = ElementDef(ComponentType.BUTTON, "Logout", "logout_sidebar_link")
+
+    private val shoppingCartIcon: ElementDef = ElementDef(ComponentType.LINK, "Cart", By.className("shopping_cart_link"))
+
+
+    val addToCartBackPackButton: ElementDef = ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-backpack")
+    val addToCartFleeceJacketButton: ElementDef = ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-fleece-jacket")
+    val addToCartBoltTShirtButton: ElementDef = ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-bolt-t-shirt")
+
     fun validateLoggedIn() {
         if (!elements().isDisplayed(logo)) {
             fail(
@@ -25,7 +33,16 @@ class MainPage : AbstractTechnicalPage() {
         }
     }
 
-fun clickOnMenu() = elements().performClick(menu)
+    fun clickOnMenu() = elements().performClick(menu)
 
-fun clickOnLogoutButton() = elements().performClick(logout)
-}
+    fun clickOnLogoutButton() = elements().performClick(logout)
+
+
+    fun clickOnAddToCart(def:ElementDef) = elements().performClick(def)
+
+    fun clickOnShoppingCart():ShoppingCartPage {
+        elements().performClick(shoppingCartIcon)
+        return ShoppingCartPage()
+        }
+    }
+
