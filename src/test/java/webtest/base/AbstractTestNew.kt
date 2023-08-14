@@ -63,14 +63,14 @@ abstract class AbstractTestNew {
         return LoginPage()
     }
 
-    fun addToCart(): MainPage {
+    /*fun addToCart(): MainPage {
 
         val mainPage = MainPage()
         mainPage.clickOnMenu()
         mainPage.clickOnLogoutButton()
 
         return MainPage()
-    }
+    }*/
 
 
 }
