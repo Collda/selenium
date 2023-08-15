@@ -7,6 +7,7 @@ import org.testng.ITestResult
 import org.testng.annotations.*
 import webtest.page.app.LoginPage
 import webtest.page.app.MainPage
+import webtest.page.menu.HamburgerMenu
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -57,10 +58,8 @@ abstract class AbstractTestNew {
     }
 
     fun logout(): LoginPage {
-        val mainPage = MainPage()
-        if (mainPage.isOpen){
-            mainPage.logout()
-        }
+        val hamburger = HamburgerMenu()
+        hamburger.logout()
         return LoginPage()
     }
 }

@@ -6,19 +6,14 @@ import webtest.base.ComponentType
 import webtest.base.ElementDef
 import webtest.base.Info.Companion.of
 import webtest.page.common.AbstractTechnicalPage
+import webtest.page.menu.HamburgerMenu
 
 class MainPage : AbstractTechnicalPage() {
-    override fun isOpen(): Boolean {
-        //TODO("Not yet implemented")
-        var isPageOpen = false
-        isPageOpen=(currentUrl.equals("https://www.saucedemo.com/inventory.html"))
-        return isPageOpen
-    }
+    override fun isOpen(): Boolean = currentUrl.equals("https://www.saucedemo.com/inventory.html")
+
 
     private val logo: ElementDef = ElementDef(ComponentType.PAGE_LOGO, "Swag Labs", By.className("app_logo"))
     private val hamburgerButton: ElementDef = ElementDef(ComponentType.MAIN_MENU_BUTTON, "Hamburger Icon", By.id("react-burger-menu-btn"))
-    private val hamburgerMenu: ElementDef = ElementDef(ComponentType.HAMBURGER_MENU, "Hamburger menu", By.className("bm-menu-wrap"))
-    private val logout: ElementDef = ElementDef(ComponentType.MAIN_MENU_ITEM,"Logout","logout_sidebar_link")
     private val addToCartOnesie: ElementDef = ElementDef(ComponentType.BUTTON, "Add to cart","add-to-cart-sauce-labs-onesie")
     private val addToCartJacket: ElementDef = ElementDef(ComponentType.BUTTON, "Add to cart","add-to-cart-sauce-labs-fleece-jacket")
     private val addToCartLight: ElementDef = ElementDef(ComponentType.BUTTON, "Add to cart","add-to-cart-sauce-labs-bike-light")
@@ -33,15 +28,9 @@ class MainPage : AbstractTechnicalPage() {
         }
     }
 
-    private fun openHamburgerMenu() : Boolean{
+    fun openHamburgerMenu() : HamburgerMenu{
         elements().performClick(hamburgerButton)
-        return elements().isDisplayed(hamburgerMenu)
-    }
-
-    fun logout(){
-        if (openHamburgerMenu()) {
-          elements().performClick(logout)
-        }
+        return HamburgerMenu()
     }
 
     fun addItemsToCart(){

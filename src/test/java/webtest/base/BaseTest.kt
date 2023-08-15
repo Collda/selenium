@@ -9,8 +9,8 @@ class BaseTest : AbstractTestNew() {
     fun exampleTest() {
         val testStep = MainPageTestStep()
         //login().validateLoggedIn()
-        login().isOpen()
+        login()
         testStep.fillCart()
-        logout().isOpen()
+        logout()
     }
 }
