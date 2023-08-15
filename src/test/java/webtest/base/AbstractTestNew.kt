@@ -5,7 +5,7 @@ import org.openqa.selenium.OutputType
 import org.openqa.selenium.TakesScreenshot
 import org.testng.ITestResult
 import org.testng.annotations.*
-import webtest.page.app.BurgerPage
+import webtest.base.Assert.assertPageIsOpen
 import webtest.page.app.LoginPage
 import webtest.page.app.MainPage
 import java.io.File
@@ -36,35 +36,24 @@ abstract class AbstractTestNew {
 
         }
         DriverSettings.getDriver().close()
-        DriverSettings.getDriver().quit()
+        //DriverSettings.getDriver().quit()
     }
 
-
-    /**
-     * Zmínit se jak to lze napsat jinak za pouziti core selenia Webdriver, rozdil mezi fce run/let/also ...
-     */
-    fun login(): MainPage {
-        /*LoginPage().run {
+    @BeforeMethod
+    fun login() {
+        LoginPage().run {
+            assertPageIsOpen(this)
             fillLogin(PropertiesData.getUsername(), PropertiesData.getPassword())
-            clickOnLoginButton()
-        }*/
-        val loginPage = LoginPage()
-        loginPage.fillLogin(PropertiesData.getUsername(),PropertiesData.getPassword())
-        loginPage.clickOnLoginButton()
-
-        return MainPage()
+            clickOnLoginButton().apply { assertPageIsOpen(this) }
+        }
     }
 
-    fun logout():BurgerPage{
-        MainPage().run{
-            clickOnMenu()
+    fun logout() {
+        MainPage().run {
+            assertPageIsOpen(this)
+            clickOnHamburgerMenu().apply { assertPageIsOpen(this).also { clickOnLogout().apply { assertPageIsOpen(this) } } }
         }
-        BurgerPage().run{
-            clickOnLogout()
-        }
-        return BurgerPage()
     }
-
 
 
 }
