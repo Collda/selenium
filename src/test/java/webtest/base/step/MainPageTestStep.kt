@@ -12,8 +12,24 @@ class MainPageTestStep: AbstractTestStep() {
         val shoppingCartPage = mainPage.clickOnShoppingCart()
         assertPageIsOpen(shoppingCartPage)
 
-       /* MainPage().run {
-            clickOnAddToCart(this.addToCartBackPackButton)
-        }*/
+        val MainPagePriceList = mutableMapOf<String, Double>()
+
+        fun AddItemToMap() {
+
+            //add item to the list
+            MainPagePriceList["Backpack"] = 29.99
+            MainPagePriceList["FleeceP"] = 49.99
+            MainPagePriceList["Tshirt"] = 15.99
+
+            }
+
+            fun returnMainPageSum() {
+                val PriceSumMainPage = MainPagePriceList.values.sumByDouble { it }
+                println("Suma na mainpage: $PriceSumMainPage")
+                //return PriceSumMainPage
+
+            /* MainPage().run {
+                 clickOnAddToCart(this.addToCartBackPackButton)
+             }*/
     }
 }

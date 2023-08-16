@@ -23,6 +23,11 @@ class MainPage : AbstractTechnicalPage() {
     private val addToCartFleecePackButton: ElementDef =
         ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-fleece-jacket")
 
+    //pro mapu
+  val polozka: String = "a"
+  val cena: Int = 1
+
+
     fun clickOnHamburgerMenu(): HamBurgerMenu {
         elements().performClick(burgerMenuIcon)
         return HamBurgerMenu()
@@ -43,4 +48,6 @@ class MainPage : AbstractTechnicalPage() {
     }
 
 
+
 }
+

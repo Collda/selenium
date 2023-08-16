@@ -31,7 +31,7 @@ public class DriverSettings {
     }
 
     public static void initializeDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Apps\\chrome\\chromedriver-win64\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver\\chromedriver.exe");
         logger.info("Creating local WebDriver");
         driver = new ChromeDriver();
         driver.get(getUrl());
