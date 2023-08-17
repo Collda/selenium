@@ -5,13 +5,13 @@ import webtest.page.app.MainPage
 
 class MainPageTestStep: AbstractTestStep() {
 
-    fun fillCart(){
+    fun fillCart() {
 
         val mainPage = MainPage()
         mainPage.fillCartWithItems()
         val shoppingCartPage = mainPage.clickOnShoppingCart()
         assertPageIsOpen(shoppingCartPage)
-
+    }
         val MainPagePriceList = mutableMapOf<String, Double>()
 
         fun AddItemToMap() {
