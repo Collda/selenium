@@ -10,5 +10,12 @@ class ShoppingCartPage : AbstractTechnicalPage() {
 
 
     private val cartContents: ElementDef = ElementDef(ComponentType.FRAME, "",By.className("cart_contents_container"))
+    private val checkOut: ElementDef=ElementDef(ComponentType.BUTTON, "Checkout","checkout")
+
+    fun clickOnCheckOut(): CheckOutInfoPage {
+        elements().performClick(checkOut)
+        return CheckOutInfoPage()
+    }
+
 
 }

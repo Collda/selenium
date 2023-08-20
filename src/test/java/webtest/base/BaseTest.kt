@@ -10,6 +10,7 @@ class BaseTest : AbstractTestNew() {
         val testStep = MainPageTestStep()
         //login()
         testStep.fillCart()
+        testStep.checkOut()
         logout()
     }
 }
