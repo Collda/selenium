@@ -246,6 +246,14 @@ public class Elements extends AbstractElementProvider {
         return element.getAttribute(VALUE_ATTR);
     }
 
+    public String getValueFromIdAttr(WebElement element) {
+        return element.getAttribute("Id");
+    }
+
+
+
+
+
     /**
      * Use this if u need to ensure only 1 element on page.
      *

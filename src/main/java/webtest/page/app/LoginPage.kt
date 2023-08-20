@@ -5,9 +5,7 @@ import webtest.base.ElementDef
 import webtest.page.common.AbstractTechnicalPage
 
 class LoginPage : AbstractTechnicalPage() {
-    override fun isOpen(): Boolean {
-        TODO("Not yet implemented")
-    }
+    override fun isOpen(): Boolean = elements().findElement(loginButton).isDisplayed
 
     private val userNameInput: ElementDef = ElementDef(ComponentType.INPUT, "Username", "user-name")
     private val passwordInput: ElementDef = ElementDef(ComponentType.INPUT, "Password", "password")

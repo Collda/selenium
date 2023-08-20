@@ -57,7 +57,6 @@ abstract class AbstractTestNew {
 
     fun logout(): LoginPage
     {
-
         val mainPage = MainPage()
         mainPage.clickOnMenu()
         mainPage.clickOnLogutButton()

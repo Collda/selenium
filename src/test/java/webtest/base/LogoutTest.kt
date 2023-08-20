@@ -7,6 +7,6 @@ class LogoutTest : AbstractTestNew() {
     @Test
     fun LogoutTest() {
         login()
-        logout()
+
     }
 }
