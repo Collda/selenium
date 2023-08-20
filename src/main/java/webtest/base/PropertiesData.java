@@ -20,6 +20,15 @@ public class PropertiesData {
     public static String getUsername() {
         return getPropertiesFile().getProperty("data.login.nickname");
     }
+    public static String getFirstName() {
+        return getPropertiesFile().getProperty("data.info.firstname");
+    }
+    public static String getLastname() {
+        return getPropertiesFile().getProperty("data.info.lastname");
+    }
+    public static String getPostalCode() {
+        return getPropertiesFile().getProperty("data.info.postalcode");
+    }
 
     public static String getUrl() {
         return getPropertiesFile().getProperty("application.url");

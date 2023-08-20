@@ -20,10 +20,16 @@ class MainPage : AbstractTechnicalPage() {
     private val shoppingCartIcon: ElementDef = ElementDef(ComponentType.LINK, "Cart", By.className("shopping_cart_link"))
 
 
-    val addToCartBackPackButton: ElementDef = ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-backpack")
-    val addToCartFleeceJacketButton: ElementDef = ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-fleece-jacket")
-    val addToCartBoltTShirtButton: ElementDef = ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-bolt-t-shirt")
+    val addToCartBackPackButton: ElementDef = ElementDef(ComponentType.BUTTON, "Backpack", "add-to-cart-sauce-labs-backpack")
+    val addToCartFleeceJacketButton: ElementDef = ElementDef(ComponentType.BUTTON, "Fleece Jacket", "add-to-cart-sauce-labs-fleece-jacket")
+    val addToCartBoltTShirtButton: ElementDef = ElementDef(ComponentType.BUTTON, "Bolt T-Shirt", "add-to-cart-sauce-labs-bolt-t-shirt")
 
+    val itemIdentifiers: Map<String, ElementDef> = mapOf(
+        "Backpack" to addToCartBackPackButton,
+        "Fleece Jacket" to addToCartFleeceJacketButton,
+        "Bolt T-Shirt" to addToCartBoltTShirtButton
+
+    )
     fun validateLoggedIn() {
         if (!elements().isDisplayed(logo)) {
             fail(
@@ -44,5 +50,6 @@ class MainPage : AbstractTechnicalPage() {
         elements().performClick(shoppingCartIcon)
         return ShoppingCartPage()
         }
+
     }
 

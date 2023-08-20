@@ -1,6 +1,7 @@
 package webtest.page.common;
 
 import cz.csob.oneib.common.util.TestUtils;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,6 +22,7 @@ public abstract class AbstractTechnicalPage extends DriverSettings {
     private final List<Info> validationFailures = new ArrayList<>();
 
     private String url;
+    @NotNull
 
     public String getCurrentUrl() {
         return DriverSettings.getDriver().getCurrentUrl();

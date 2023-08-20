@@ -1,5 +1,6 @@
 package webtest.base.step
 
+import webtest.base.ElementDef
 import webtest.page.app.MainPage
 
 class MainPageTestStep: AbstractTestStep(){

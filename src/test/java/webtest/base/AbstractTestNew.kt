@@ -5,6 +5,8 @@ import org.openqa.selenium.OutputType
 import org.openqa.selenium.TakesScreenshot
 import org.testng.ITestResult
 import org.testng.annotations.*
+import webtest.page.app.CheckoutOverviewPage
+import webtest.page.app.CheckoutYourInformationPage
 import webtest.page.app.LoginPage
 import webtest.page.app.MainPage
 import java.io.File
@@ -54,6 +56,15 @@ abstract class AbstractTestNew {
         return MainPage()
     }
 
+    fun info(): CheckoutOverviewPage {
+        val checkoutYourInformationPage = CheckoutYourInformationPage()
+        checkoutYourInformationPage.fillInfo(PropertiesData.getFirstName(),PropertiesData.getLastname(), PropertiesData.getPostalCode())
+        checkoutYourInformationPage.clickOnContinueButton()
+
+        return CheckoutOverviewPage()
+    }
+
+
     fun logout(): LoginPage {
 
         val mainPage = MainPage()
@@ -62,15 +73,4 @@ abstract class AbstractTestNew {
 
         return LoginPage()
     }
-
-    /*fun addToCart(): MainPage {
-
-        val mainPage = MainPage()
-        mainPage.clickOnMenu()
-        mainPage.clickOnLogoutButton()
-
-        return MainPage()
-    }*/
-
-
 }
