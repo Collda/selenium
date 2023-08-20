@@ -18,7 +18,7 @@ class LoginPage : AbstractTechnicalPage() {
     }
 
     fun fillLogin(userName: String, password: String){
-        elements().setValue(userNameInput,userName)
+        elements().setValue(userNameInput, userName)
         elements().setValue(passwordInput, password)
     }
 }

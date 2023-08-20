@@ -5,7 +5,6 @@ import webtest.page.app.MainPage
 class MainPageTestStep: AbstractTestStep(){
     fun fillCart(){
         val mainPage = MainPage()
-        mainPage.addItemsToCart()
-        mainPage.clickOnCart()
+        mainPage.addRandomItemsToCart(3)
     }
 }

@@ -15,8 +15,6 @@ class HamburgerMenu : AbstractMenu() {
     private val logout: ElementDef = ElementDef(ComponentType.MAIN_MENU_ITEM,"Logout","logout_sidebar_link")
 
     fun logout() : LoginPage {
-        val mainPage = MainPage()
-        mainPage.openHamburgerMenu()
         elements().performClick(logout)
         return LoginPage()
     }
