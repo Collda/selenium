@@ -1,7 +1,6 @@
 package webtest.page.app
 
 import org.openqa.selenium.By
-import org.openqa.selenium.WebDriver
 import webtest.base.ComponentType
 import webtest.base.ElementDef
 import webtest.page.common.AbstractTechnicalPage
