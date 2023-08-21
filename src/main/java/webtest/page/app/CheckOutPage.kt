@@ -15,10 +15,10 @@ class CheckOutPage: AbstractTechnicalPage() {
     fun verifyTotalPriceEqualToTotalTitemPrice(): Boolean{
         val shoppingCardPage = ShoppingCartPage()
         val itemTotal = elements().findElement(labelItemTotal).text
-        val intItemTotal = itemTotal.removePrefix("Item total: $").toDouble().roundToInt()
+        val doubleItemTotal = itemTotal.removePrefix("Item total: $").toDouble()
 
 
-        return shoppingCardPage.totalPrice==intItemTotal
+        return shoppingCardPage.totalPrice==doubleItemTotal
     }
 
 }

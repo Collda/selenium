@@ -14,7 +14,7 @@ class ShoppingCartPage: AbstractTechnicalPage() {
 
     private val cartContent: ElementDef = ElementDef(ComponentType.FRAME,"", By.ByClassName("cart_contents_container"))
     private val checkoutButton: ElementDef = ElementDef(ComponentType.BUTTON,"Checkout", By.id("checkout"))
-    public var totalPrice: Int = 0
+    public var totalPrice: Double = 0.0
 
 
 
@@ -30,7 +30,7 @@ class ShoppingCartPage: AbstractTechnicalPage() {
         val priceLabel: ElementDef = ElementDef(ComponentType.LABEL,"Price", By.xpath("(//div[@class='inventory_item_price'])[${prodNumber}]"))
 
         val price = elements().findElement(priceLabel)
-        val priceOfProduct = price.getText().removePrefix("$").toDouble().roundToInt()
+        val priceOfProduct = price.getText().removePrefix("$").toDouble()
 
         totalPrice = (totalPrice + priceOfProduct)
 
