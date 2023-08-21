@@ -1,35 +1,46 @@
 package webtest.page.app
 
 import org.openqa.selenium.By
-import org.testng.Assert.fail
 import webtest.base.ComponentType
 import webtest.base.ElementDef
-import webtest.base.Info.Companion.of
 import webtest.page.common.AbstractTechnicalPage
 
 class MainPage : AbstractTechnicalPage() {
-    override fun isOpen(): Boolean {
-        TODO("Not yet implemented")
-    }
-
-
+    override fun isOpen(): Boolean =
+        elements().findElement(logo).isDisplayed
 
     private val logo: ElementDef = ElementDef(ComponentType.PAGE_LOGO, "Swag Labs", By.className("app_logo"))
+    private val burgerMenuIcon: ElementDef =
+        ElementDef(ComponentType.BUTTON, "Hamburger menu", By.className("bm-burger-button"))
 
-    private val hambugerMenu: ElementDef = ElementDef(ComponentType.BUTTON, "BurgerMenu", "react-burger-menu-btn")
-    private val logOutButton: ElementDef = ElementDef(ComponentType.BUTTON, "LogOut", "logout_sidebar_link")
+    private val shoppingCartIcon: ElementDef =
+        ElementDef(ComponentType.LINK, "Icon of Cart", By.className("shopping_cart_link"))
 
-    fun clickOnHamburgerMenuButton() = elements().performClick(hambugerMenu)
+    private val addToCartBackPackButton: ElementDef =
+        ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-backpack")
+    private val addToCartTShirtButton: ElementDef =
+        ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-bolt-t-shirt")
+    private val addToCartFleecePackButton: ElementDef =
+        ElementDef(ComponentType.BUTTON, "Add to cart", "add-to-cart-sauce-labs-fleece-jacket")
 
-    fun clickOnLogOutButton() = elements().performClick(logOutButton)
-
-    fun validateLoggedIn() {
-        if (!elements().isDisplayed(logo)) {
-            fail(
-                of(this).message("Uživateli se nepodažilo přihlásit nebo se nezobrazilo logo na stránce").element(logo)
-                    .build()
-            )
-        }
+    fun clickOnHamburgerMenu(): HamBurgerMenu {
+        elements().performClick(burgerMenuIcon)
+        return HamBurgerMenu()
     }
+
+    fun clickOnAddToCart(def: ElementDef) = elements().performClick(def)
+
+    fun clickOnShoppingCart(): ShoppingCartPage {
+        elements().performClick(shoppingCartIcon)
+        return ShoppingCartPage()
+    }
+
+    fun fillCartWithItems() {
+        clickOnAddToCart(addToCartBackPackButton)
+        clickOnAddToCart(addToCartFleecePackButton)
+        clickOnAddToCart(addToCartTShirtButton)
+
+    }
+
 
 }
