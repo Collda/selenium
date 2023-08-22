@@ -12,6 +12,7 @@ class MainPageTestStep: AbstractTestStep() {
         val shoppingCartPage = mainPage.clickOnShoppingCart()
         assertPageIsOpen(shoppingCartPage)
 
+
        /* MainPage().run {
             clickOnAddToCart(this.addToCartBackPackButton)
         }*/

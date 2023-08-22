@@ -6,6 +6,7 @@ import org.openqa.selenium.TakesScreenshot
 import org.testng.ITestResult
 import org.testng.annotations.*
 import webtest.base.Assert.assertPageIsOpen
+import webtest.page.app.FillYourInformationPage
 import webtest.page.app.LoginPage
 import webtest.page.app.MainPage
 import java.io.File
@@ -45,6 +46,14 @@ abstract class AbstractTestNew {
             assertPageIsOpen(this)
             fillLogin(PropertiesData.getUsername(), PropertiesData.getPassword())
             clickOnLoginButton().apply { assertPageIsOpen(this) }
+        }
+    }
+
+    fun userInformation() {
+        FillYourInformationPage().run {
+        fillUserInfo(PropertiesData.getFirstName(),PropertiesData.getLastName(), PropertiesData.getPostalCode())
+        clickOnContinueButton()
+
         }
     }
 
