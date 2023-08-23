@@ -16,10 +16,10 @@ class BaseTest : AbstractTestNew() {
         val checkoutSecondStep = CheckoutSecondPageTestStep()
         //login().validateLoggedIn()
         login()
-        mainTestStep.fillCart()
-        cartTestStep.checkCartAndContinue()
-        checkoutFirstStep.fillDetailsAndContinue()
-        checkoutSecondStep.finalizeCheckout()
+            mainTestStep.fillCart()
+            cartTestStep.checkCartAndContinue()
+            checkoutFirstStep.fillDetailsAndContinue()
+            checkoutSecondStep.finalizeCheckout(mainTestStep.getSum(),cartTestStep.getSum())
         logout()
     }
 }

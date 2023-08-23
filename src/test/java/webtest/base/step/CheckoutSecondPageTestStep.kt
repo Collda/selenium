@@ -3,8 +3,8 @@ package webtest.base.step
 import webtest.page.app.CheckoutSecondPage
 
 class CheckoutSecondPageTestStep: AbstractTestStep() {
-    fun finalizeCheckout(){
+    fun finalizeCheckout(selectedSum: Double, cartSum: Double){
         val checkoutSecondPage = CheckoutSecondPage()
-        checkoutSecondPage.checkTotalPrice()
+        checkoutSecondPage.checkTotalPrice(selectedSum,cartSum)
     }
 }

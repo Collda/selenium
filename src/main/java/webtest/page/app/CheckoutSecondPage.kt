@@ -13,23 +13,19 @@ class CheckoutSecondPage : AbstractTechnicalPage()  {
     private val hamburgerButton: ElementDef = ElementDef(ComponentType.MAIN_MENU_BUTTON, "Hamburger Icon", "react-burger-menu-btn")
     private val finishButton: ElementDef = ElementDef(ComponentType.BUTTON, "Finish", "finish")
 
-    private var total = 0.0
+    private var total: Double = 0.0
 
-    fun checkTotalPrice(){
-        val mainPage = MainPage()
-        val cartPage = CartPage()
-
+    fun checkTotalPrice(selectedTotal: Double, cartTotal: Double){
         total = itemTotal.text.substringAfter("$").toDouble()
         println("Total price on checkout is $$total without tax")
         println("Comparing all redorded totals...")
-        println(compareAllTotals(mainPage.getChosenItemSum(), cartPage.getCartItemSum(), total))
+        println(compareAllTotals(selectedTotal, cartTotal, total))
     }
 
     private fun checkout(){
         elements().performClick(finishButton)
     }
 
-    // TODO: figure out how to compare double values from 2 other pages right here
     private fun compareAllTotals (selectedTotal: Double, cartTotal: Double, checkoutTotal: Double): String{
         println("Totals to compare: ")
         println("       Selected item total: $selectedTotal")
@@ -43,6 +39,8 @@ class CheckoutSecondPage : AbstractTechnicalPage()  {
             else -> "Neither selected item total nor cart total matches the checkout total ($$checkoutTotal)."
         }
     }
+
+
 
     fun openHamburgerMenu() : HamburgerMenu {
         elements().performClick(hamburgerButton)

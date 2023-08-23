@@ -1,11 +1,15 @@
 package webtest.base.step
 
 import webtest.page.app.CartPage
-import webtest.page.app.MainPage
 
 class CartPageTestStep: AbstractTestStep() {
+    private val cartPage = CartPage()
     fun checkCartAndContinue() {
-        val cartPage = CartPage()
         cartPage.cartCheckout()
     }
+
+    fun getSum(): Double {
+        return cartPage.getCartItemSum()
+    }
+
 }
