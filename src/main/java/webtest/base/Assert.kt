@@ -51,12 +51,26 @@ object Assert {
     }
 
     @JvmStatic
-    fun assertElementIsDisabled(page: AbstractTechnicalPage, def: ElementDef){
-        if (page.elements().findElement(def).isEnabled){
-            fail(Info.of(page)
-                .message("Bylo očekáváno, že tlačítko bude disabled, ale není")
-                .element(def)
-                .build())
+    fun assertElementIsDisabled(page: AbstractTechnicalPage, def: ElementDef) {
+        if (page.elements().findElement(def).isEnabled) {
+            fail(
+                Info.of(page)
+                    .message("Bylo očekáváno, že tlačítko bude disabled, ale není")
+                    .element(def)
+                    .build()
+            )
+        }
+    }
+
+    @JvmStatic
+    fun assertElementIsDisplayed(page:AbstractTechnicalPage, def: ElementDef){
+        if (page.elements().findElement(def).isDisplayed) {
+            fail(
+                Info.of(page)
+                    .message("Element není zobrazen na obrazovce")
+                    .element(def)
+                    .build()
+            )
         }
     }
 }

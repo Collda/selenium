@@ -20,27 +20,41 @@ class MainPage : AbstractTechnicalPage() {
     private val shoppingCartIcon: ElementDef =
         ElementDef(ComponentType.LINK, "Icon of Cart", By.className("shopping_cart_link"))
 
-    private val addToCardBackButton: ElementDef =
+    private val addToCartBackpackButton: ElementDef =
         ElementDef(ComponentType.BUTTON, "Add to cart", By.id("add-to-cart-sauce-labs-backpack"))
-    private val addToCardOnesButton: ElementDef =
+    private val backpackItem: ElementDef =
+        ElementDef(ComponentType.LABEL, "Sauce Labs Backpack", By.id("item_4_title_link"))
+
+    private val addToCartOnesieButton: ElementDef =
         ElementDef(ComponentType.BUTTON, "Add to cart", By.id("add-to-cart-sauce-labs-onesie"))
-    private val addToCardLightsButton: ElementDef =
+    private val onesieItem: ElementDef =
+        ElementDef(ComponentType.LABEL, "Sauce Labs Onesie", By.id("item_2_title_link"))
+
+    private val addToCartLightsButton: ElementDef =
         ElementDef(ComponentType.BUTTON, "Add to cart", By.id("add-to-cart-sauce-labs-bike-light"))
+    private val bikeLightItem: ElementDef =
+        ElementDef(ComponentType.LABEL, "Sauce Labs Bike Light", By.id("item_0_title_link"))
 
     fun clickOnMenuButton() = elements().performClick(menuButton)
     fun clickOnLogoutButton() = elements().performClick(logoutButton)
-    fun clickOnAddToCart(def: ElementDef) = elements().performClick(def)
+    private fun clickOnAddToCart(def: ElementDef) = elements().performClick(def)
 
     fun clickOnShoppingCart():ShoppingCartPage {
         elements().performClick(shoppingCartIcon)
         return ShoppingCartPage()
     }
     fun fillCartWithItems() {
-        clickOnAddToCart(addToCardBackButton)
-        clickOnAddToCart(addToCardOnesButton)
-        clickOnAddToCart(addToCardLightsButton)
+        clickOnAddToCart(addToCartBackpackButton)
+        clickOnAddToCart(addToCartOnesieButton)
+        clickOnAddToCart(addToCartLightsButton)
     }
-
-
-
+    fun getBackpackItem():ElementDef{
+        return backpackItem
+    }
+    fun getOnesieItem():ElementDef{
+        return onesieItem
+    }
+    fun getBikeLightItem():ElementDef {
+        return bikeLightItem
+    }
 }

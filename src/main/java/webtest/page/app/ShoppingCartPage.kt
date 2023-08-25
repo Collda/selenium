@@ -10,4 +10,10 @@ class ShoppingCartPage:AbstractTechnicalPage() {
 
     private val cartContents: ElementDef =
         ElementDef(ComponentType.FRAME, "", By.className("cart_contents_container"))
+    fun cartItem(): List<ElementDef>{
+        val mainPage = MainPage()
+        val cartItemList: List<ElementDef> = listOf(mainPage.getBackpackItem(),mainPage.getOnesieItem(),mainPage.getBikeLightItem())
+
+        return cartItemList
+    }
 }
