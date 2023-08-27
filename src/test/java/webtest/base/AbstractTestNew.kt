@@ -7,7 +7,7 @@ import org.testng.ITestResult
 import org.testng.annotations.*
 import webtest.base.Assert.assertPageIsOpen
 import webtest.page.app.LoginPage
-import webtest.page.app.MainPage
+import webtest.page.app.HamburgerMenu
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -53,9 +53,9 @@ abstract class AbstractTestNew {
     }
 
     fun logout() {
-        MainPage().run {
-            assertPageIsOpen(this)
+        HamburgerMenu().run {
             clickOnMenuButton()
+            assertPageIsOpen(this)
             clickOnLogoutButton()
         }
     }

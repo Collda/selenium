@@ -10,6 +10,12 @@ class ShoppingCartPage:AbstractTechnicalPage() {
 
     private val cartContents: ElementDef =
         ElementDef(ComponentType.FRAME, "", By.className("cart_contents_container"))
+    private val checkoutButton: ElementDef =
+        ElementDef(ComponentType.BUTTON, "Checkout", By.id("checkout"))
+    fun clickOnCheckoutButton():CheckOutStepOnePage {
+        elements().performClick(checkoutButton)
+        return CheckOutStepOnePage()
+    }
     fun cartItem(): List<ElementDef>{
         val mainPage = MainPage()
         val cartItemList: List<ElementDef> = listOf(mainPage.getBackpackItem(),mainPage.getOnesieItem(),mainPage.getBikeLightItem())
