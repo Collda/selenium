@@ -21,7 +21,8 @@ class LoginPage : AbstractTechnicalPage() {
         elements().performClick(loginButton)
         return MainPage()
     }
-    fun fillLogin(userName: String, password: String){
+
+    fun fillLogin(userName: String, password: String) {
         elements().setValue(userNameInput, userName)
         elements().setValue(passwordInput, password)
     }

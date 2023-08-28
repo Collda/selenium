@@ -19,6 +19,4 @@ class BaseTest : AbstractTestNew() {
         testStep3.checkCartSum(sum)
         logout()
     }
-
-
 }

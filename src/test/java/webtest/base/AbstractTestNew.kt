@@ -39,12 +39,8 @@ abstract class AbstractTestNew {
         //DriverSettings.getDriver().quit()
     }
 
-
-    /**
-     * Zmínit se jak to lze napsat jinak za pouziti core selenia Webdriver, rozdil mezi fce run/let/also ...
-     */
     @BeforeMethod
-    fun login(){
+    fun login() {
         LoginPage().run {
             assertPageIsOpen(this)
             fillLogin(PropertiesData.getUsername(), PropertiesData.getPassword())
