@@ -28,11 +28,11 @@ class MainPage : AbstractTechnicalPage() {
         return HamBurgerMenu()
     }
 
-    fun clickOnAddToCart(def: ElementDef) = elements().performClick(def)
+    private fun clickOnAddToCart(def: ElementDef) = elements().performClick(def)
 
-    fun clickOnShoppingCart(): ShoppingCartPage {
+    fun clickOnShoppingCart(): ShoppingCartPageOne {
         elements().performClick(shoppingCartIcon)
-        return ShoppingCartPage()
+        return ShoppingCartPageOne()
     }
 
     fun fillCartWithItems() {
