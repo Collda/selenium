@@ -6,6 +6,7 @@ import org.openqa.selenium.TakesScreenshot
 import org.testng.ITestResult
 import org.testng.annotations.*
 import webtest.page.app.CheckoutSecondPage
+import webtest.base.Assert.assertPageIsOpen
 import webtest.page.app.LoginPage
 import webtest.page.app.MainPage
 import webtest.page.menu.HamburgerMenu
@@ -40,22 +41,13 @@ abstract class AbstractTestNew {
         DriverSettings.getDriver().quit()
     }
 
-
-    /**
-     * Zmínit se jak to lze napsat jinak za pouziti core selenia Webdriver, rozdil mezi fce run/let/also ...
-     */
-    fun login(): MainPage {
-        //TODO: rewrite loginpage without .run
-        /* LoginPage().run {
+    @BeforeMethod
+    fun login() {
+        LoginPage().run {
+            assertPageIsOpen(this)
             fillLogin(PropertiesData.getUsername(), PropertiesData.getPassword())
-            clickOnLoginButton()
-        }*/
-
-        val loginPage = LoginPage()
-        loginPage.fillLogin(PropertiesData.getUsername(), PropertiesData.getPassword())
-        loginPage.clickOnLoginButton()
-
-        return MainPage()
+            clickOnLoginButton().apply { assertPageIsOpen(this) }
+        }
     }
 
     fun logout(): LoginPage {
