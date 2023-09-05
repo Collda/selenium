@@ -16,7 +16,10 @@ class FillYourInformationPage: AbstractTechnicalPage() {
 
     private val continueButton: ElementDef = ElementDef(ComponentType.BUTTON, "Continue", "continue")
 
-    fun clickOnContinueButton() = elements().performClick(continueButton)
+    fun clickOnContinueButton(): ShoppingCartFinalPage {
+        elements().performClick(continueButton)
+        return ShoppingCartFinalPage()
+    }
     fun fillUserInfo(firstName: String, lastName: String, postalCode: String){
         elements().setValue(userFistName, firstName)
         elements().setValue(userLastName, lastName)

@@ -1,7 +1,6 @@
 package webtest.base.step
 
 import webtest.page.app.ShoppingCartPage
-import webtest.page.app.ShoppingCartFinalPage
 
 class CartCheckStep: AbstractTestStep(){
 
