@@ -11,5 +11,6 @@ class CartCheckStep: AbstractTestStep(){
         fillYourInformationPage.fillUserInfo("Petr", "Svatý", "11098")
         val shoppingCartFinalPage  = fillYourInformationPage.clickOnContinueButton()
         shoppingCartFinalPage.validateTotalPrice(shoppingCartPage.getCartItemsPriceSummary(),shoppingCartFinalPage.getTotalPrice())
+        shoppingCartFinalPage.clickOnFinishButton()
     }
 }

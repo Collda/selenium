@@ -6,6 +6,7 @@ import org.openqa.selenium.TakesScreenshot
 import org.testng.ITestResult
 import org.testng.annotations.*
 import webtest.base.Assert.assertPageIsOpen
+import webtest.page.app.CheckoutCompletePage
 import webtest.page.app.FillYourInformationPage
 import webtest.page.app.LoginPage
 import webtest.page.app.MainPage
@@ -63,6 +64,12 @@ abstract class AbstractTestNew {
             clickOnHamburgerMenu().apply { assertPageIsOpen(this).also { clickOnLogout().apply { assertPageIsOpen(this) } } }
         }
     }
+    fun clickBackHomeButton() {
+        CheckoutCompletePage().run {
+            clickOnBackHomeButton()
+        }
+    }
+
 
 
 }

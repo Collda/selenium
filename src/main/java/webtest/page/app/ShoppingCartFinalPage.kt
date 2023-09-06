@@ -13,6 +13,8 @@ class ShoppingCartFinalPage: AbstractTechnicalPage() {
     private val summaryContainer: ElementDef = ElementDef(ComponentType.ANY, "", "checkout_summary_container")
     private val itemTotalLabel: ElementDef = ElementDef(ComponentType.LABEL, "Total", By.className("summary_subtotal_label"))
 
+
+    private val finishButton: ElementDef = ElementDef(ComponentType.BUTTON, "Finish", "finish")
     fun getTotalPrice(): Double = elements().findElement(itemTotalLabel).text.substringAfter("$").toDouble()
 
     fun validateTotalPrice(expectedPrice: Double, actualPrice: Double) {
@@ -23,4 +25,9 @@ class ShoppingCartFinalPage: AbstractTechnicalPage() {
         }
 
     }
+    fun clickOnFinishButton(): CheckoutCompletePage {
+        elements().performClick(finishButton)
+        return CheckoutCompletePage()
+    }
+
 }

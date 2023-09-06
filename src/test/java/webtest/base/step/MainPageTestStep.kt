@@ -13,4 +13,5 @@ class MainPageTestStep: AbstractTestStep() {
         assertPageIsOpen(shoppingCartPage)
 
     }
+
 }
