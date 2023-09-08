@@ -56,14 +56,6 @@ abstract class AbstractTestNew {
         return MainPage()
     }
 
-    fun info(): CheckoutOverviewPage {
-        val checkoutYourInformationPage = CheckoutYourInformationPage()
-        checkoutYourInformationPage.fillInfo(PropertiesData.getFirstName(),PropertiesData.getLastname(), PropertiesData.getPostalCode())
-        checkoutYourInformationPage.clickOnContinueButton()
-
-        return CheckoutOverviewPage()
-    }
-
 
     fun logout(): LoginPage {
 
