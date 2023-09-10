@@ -15,11 +15,13 @@ class CheckoutSecondPage : AbstractTechnicalPage()  {
 
     private var total: Double = 0.0
 
-    fun checkTotalPrice(selectedTotal: Double, cartTotal: Double){
+    fun checkTotalPrice(selectedTotal: Double, cartTotal: Double) : CheckoutComplete{
         total = itemTotal.text.substringAfter("$").toDouble()
         println("Total price on checkout is $$total without tax")
-        println("Comparing all redorded totals...")
+        //println("Comparing all redorded totals...")
         println(compareAllTotals(selectedTotal, cartTotal, total))
+        checkout()
+        return CheckoutComplete()
     }
 
     private fun checkout(){
@@ -27,10 +29,10 @@ class CheckoutSecondPage : AbstractTechnicalPage()  {
     }
 
     private fun compareAllTotals (selectedTotal: Double, cartTotal: Double, checkoutTotal: Double): String{
-        println("Totals to compare: ")
-        println("       Selected item total: $selectedTotal")
-        println("       Cart total:          $cartTotal")
-        println("       Checkout total:      $checkoutTotal")
+//        println("Totals to compare: ")
+//        println("       Selected item total: $selectedTotal")
+//        println("       Cart total:          $cartTotal")
+//        println("       Checkout total:      $checkoutTotal")
 
         return when {
             checkoutTotal == selectedTotal && checkoutTotal == cartTotal -> "All three totals match ($$checkoutTotal)."
@@ -39,8 +41,6 @@ class CheckoutSecondPage : AbstractTechnicalPage()  {
             else -> "Neither selected item total nor cart total matches the checkout total ($$checkoutTotal)."
         }
     }
-
-
 
     fun openHamburgerMenu() : HamburgerMenu {
         elements().performClick(hamburgerButton)

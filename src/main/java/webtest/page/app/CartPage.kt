@@ -15,11 +15,12 @@ class CartPage : AbstractTechnicalPage() {
     private var cartItemsSum = 0.0
 
     fun cartCheckout(): CheckoutFirstPage{
-        val cartItems = extractCartItems()
-        cartItems.forEach {(itemName, itemPrice) ->
-            println("Found item [$itemName with the price of $$itemPrice] in cart.")
-        }
-        println("Total  price items in cart is: $$cartItemsSum")
+//        val cartItems = extractCartItems()
+//        cartItems.forEach {(itemName, itemPrice) ->
+//            println("Found item [$itemName with the price of $$itemPrice] in cart.")
+//        }
+        extractCartItems()
+        println("Total price of items in cart is: $$cartItemsSum")
         elements().performClick(checkoutButton)
 
         return CheckoutFirstPage()
