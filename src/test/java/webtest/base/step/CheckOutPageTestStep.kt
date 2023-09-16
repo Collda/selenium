@@ -1,6 +1,7 @@
 package webtest.base.step
 
 import webtest.page.app.CheckOutPage
+import webtest.page.app.FinishPage
 
 class CheckOutPageTestStep : AbstractTestStep() {
 
@@ -8,5 +9,10 @@ class CheckOutPageTestStep : AbstractTestStep() {
         CheckOutPage().run{
             verifyTotalPriceEqualToTotalTitemPrice()
         }
+    }
+
+    fun FinishAndVerify(): FinishPage{
+        CheckOutPage().clickOnFinishButton()
+        return FinishPage()
     }
 }

@@ -1,30 +1,31 @@
 package webtest.base.step
+
 import webtest.page.app.MainPage
 import webtest.page.app.ShoppingCartPage
 
-class ShoppingCartTestStep: AbstractTestStep() {
+class ShoppingCartTestStep : AbstractTestStep() {
     val itemList = MainPage().cartItemsList
     val shoppingCartPage = ShoppingCartPage()
-fun checkBoughtElements() {
+    fun checkBoughtElements() {
 
-    for (element in itemList) {
-        shoppingCartPage.verifyRightProductInserted(element)
+        for (element in itemList) {
+            shoppingCartPage.verifyRightProductInserted(element)
 
+        }
     }
-}
 
-    fun calculateTotalPrice(){
+    fun calculateTotalPrice() {
 
         val itemList = MainPage().cartItemsList
-        for (element in itemList){
+        for (element in itemList) {
             shoppingCartPage.addItemPriceToCurrentPrice(itemList.indexOf(element))
         }
     }
 
-fun clickOnCheckoutButton(){
+    fun clickOnCheckoutButton() {
 
-    shoppingCartPage.clickOnCheckoutButton()
+        shoppingCartPage.clickOnCheckoutButton()
 
-}
+    }
 
 }

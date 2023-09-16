@@ -1,9 +1,11 @@
 package webtest.base.step
+
 import webtest.page.app.MainPage
+
 class MainPageTestStep {
 
 
-    fun fillCart(){
+    fun fillCart() {
 
         MainPage().run {
             addProductIdToList(getProductId(this.addToCartBackpackButton))
@@ -15,10 +17,21 @@ class MainPageTestStep {
             clickOnCart()
         }
     }
-    fun OpenCart()
-    {
+
+    fun openCart() {
         MainPage().run {
             clickOnCart()
+        }
+    }
+
+    fun testFilter(filter: String) {
+        val listOne = MainPage().getSortedMapBy(filter)
+        MainPage().selectFilter(filter)
+        val listTwo = MainPage().getItemList().toMap()
+        if (listOne == listTwo) {
+            println("Filtr $filter funguje správně")
+        } else {
+            println("Filtr $filter nefiltruje správně")
         }
     }
 

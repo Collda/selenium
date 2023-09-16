@@ -11,6 +11,7 @@ class CheckOutPage: AbstractTechnicalPage() {
     override fun isOpen(): Boolean = elements().findElement(labelItemTotal).isDisplayed
 
     val labelItemTotal: ElementDef = ElementDef(ComponentType.BUTTON,"Item Total", By.className("summary_subtotal_label"))
+    val finishButton: ElementDef = ElementDef(ComponentType.BUTTON,"Finish", "finish")
 
     fun verifyTotalPriceEqualToTotalTitemPrice(): Boolean{
         val shoppingCardPage = ShoppingCartPage()
@@ -20,5 +21,7 @@ class CheckOutPage: AbstractTechnicalPage() {
 
         return shoppingCardPage.totalPrice==doubleItemTotal
     }
+
+    fun clickOnFinishButton()=elements().performClick(finishButton)
 
 }
